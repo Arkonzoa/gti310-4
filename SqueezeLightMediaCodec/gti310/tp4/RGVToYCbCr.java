@@ -5,7 +5,7 @@ package gti310.tp4;
  * @author David
  *
  */
-public class ConversionCouleurs {
+public class RGVToYCbCr {
 
 	public static float[][][] convertir(int[][][] imageAConverir) {
 		
