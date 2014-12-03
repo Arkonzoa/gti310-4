@@ -4,3 +4,5 @@
 /SZLReaderWriter.class
 /ConversionCouleurs.class
 /RGVToYCbCr.class
+/RGBToYCbCr.class
+/YCbCrToRGB.class

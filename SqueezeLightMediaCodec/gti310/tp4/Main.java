@@ -42,7 +42,7 @@ public class Main {
 	public static void main(String[] args) {
 		PPMReaderWriter ppm = new PPMReaderWriter();
 		int[][][] newFileInt = ppm.readPPMFile(args[0]);
-		float[][][] newFileFloat = RGVToYCbCr.convertir(newFileInt);
+		float[][][] newFileFloat = RGBToYCbCr.convertir(newFileInt);
 		System.out.println("Squeeze Light Media Codec !");
 	}
 }

@@ -5,7 +5,7 @@ package gti310.tp4;
  * @author David
  *
  */
-public class RGVToYCbCr {
+public class RGBToYCbCr {
 
 	public static float[][][] convertir(int[][][] imageAConverir) {
 		
@@ -14,8 +14,8 @@ public class RGVToYCbCr {
 		for(int i = 0; i < PPMReaderWriter.getM_height(); i++) {
 			for(int j = 0; j < PPMReaderWriter.getM_width() ; j++) {
 				newImage[Main.Y][i][j] = (float) (0.299*imageAConverir[Main.R][i][j])+(float) (0.587*imageAConverir[Main.R][i][j])+(float) (0.114*imageAConverir[Main.B][i][j])+0;
-				newImage[(int) (Main.Cb+0.5)][i][j] = (float) ((float) (-0.168736*imageAConverir[Main.R][i][j])+(float) (-0.331264*imageAConverir[Main.R][i][j])+(float) (0.5*imageAConverir[Main.B][i][j])+0.5);
-				newImage[(int) (Main.Cr+0.5)][i][j] = (float) ((float) (0.5*imageAConverir[Main.R][i][j])+(float) (-0.418688*imageAConverir[Main.R][i][j])+(float) (-0.081312*imageAConverir[Main.B][i][j])+0.5);
+				newImage[Main.Cb][i][j] = (float) ((float) (-0.168736*imageAConverir[Main.R][i][j])+(float) (-0.331264*imageAConverir[Main.R][i][j])+(float) (0.5*imageAConverir[Main.B][i][j])+0.5);
+				newImage[Main.Cr][i][j] = (float) ((float) (0.5*imageAConverir[Main.R][i][j])+(float) (-0.418688*imageAConverir[Main.R][i][j])+(float) (-0.081312*imageAConverir[Main.B][i][j])+0.5);
 			}
 		}
 		
