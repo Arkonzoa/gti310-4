@@ -15,9 +15,14 @@ import java.io.IOException;
  * of the colors in the RGB color space. The dimensions are all the same size.
  * The same must be true for writting pixel values to a file.
  *  
- * @author François Caron
+ * @author Franï¿½ois Caron
  */
 public class PPMReaderWriter {
+	
+	private static int m_height;
+	
+	private static int m_width;
+	
 	/* 
 	 * constants used to read & write
 	 */
@@ -32,7 +37,7 @@ public class PPMReaderWriter {
 	/*
 	 * comment string to add to files written with this application
 	 */
-	private static final String COMMENTS = "# ÉTS GTI310 codec squeeze light";
+	private static final String COMMENTS = "# ï¿½TS GTI310 codec squeeze light";
 	
 	/*
 	 * maximum value in the file
@@ -108,7 +113,13 @@ public class PPMReaderWriter {
 			 * creates a new array of RGB values with what was read in the file
 			 */
 			int h = Integer.parseInt(height);
+			
 			int w = Integer.parseInt(width);
+			
+			//On set les attributs
+			m_height =h;
+			m_width=w;
+			
 			int[][][] image = new int[Main.COLOR_SPACE_SIZE][h][w];
 			int offset = 0;
 			for(int i = 0; i < h; i++) {
@@ -141,6 +152,22 @@ public class PPMReaderWriter {
 		return null;
 	}
 	
+	public static int getM_height() {
+		return m_height;
+	}
+
+	public static void setM_height(int m_height) {
+		PPMReaderWriter.m_height = m_height;
+	}
+
+	public static int getM_width() {
+		return m_width;
+	}
+
+	public static void setM_width(int m_width) {
+		PPMReaderWriter.m_width = m_width;
+	}
+
 	/**
 	 * 
 	 * @param filename
