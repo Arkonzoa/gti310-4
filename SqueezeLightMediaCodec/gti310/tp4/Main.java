@@ -28,7 +28,7 @@ public class Main {
 	public static final int B = 2;
 	
 	/*
-	 * The YUV color space.
+	 * The YCbCr color space.
 	 */
 	public static final int Y = 0;
 	public static final int Cb = 1;
