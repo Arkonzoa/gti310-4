@@ -23,23 +23,68 @@ public class Quantification {
 			{ 95, 95, 95, 95, 95, 95, 95, 95 }
 
 	};
-	
+
 	private static final int[][] QCr = { { 17, 40, 40, 95, 95, 95, 95, 95 },
-		{ 40, 40, 40, 95, 95, 95, 95, 95 },
-		{ 40, 40, 40, 95, 95, 95, 95, 95 },
-		{ 40, 40, 95, 95, 95, 95, 95, 95 },
-		{ 95, 95, 95, 95, 95, 95, 95, 95 },
-		{ 95, 95, 95, 95, 95, 95, 95, 95 },
-		{ 95, 95, 95, 95, 95, 95, 95, 95 },
-		{ 95, 95, 95, 95, 95, 95, 95, 95 }
+			{ 40, 40, 40, 95, 95, 95, 95, 95 },
+			{ 40, 40, 40, 95, 95, 95, 95, 95 },
+			{ 40, 40, 95, 95, 95, 95, 95, 95 },
+			{ 95, 95, 95, 95, 95, 95, 95, 95 },
+			{ 95, 95, 95, 95, 95, 95, 95, 95 },
+			{ 95, 95, 95, 95, 95, 95, 95, 95 },
+			{ 95, 95, 95, 95, 95, 95, 95, 95 }
 
-};
-	
+	};
 
+	public static int[][] appliquerQuantification(int[][] matriceEntree,
+			int couleur, int fq) {
+		
+		//On récupere la calcul d'alpha
+		int alpha = calculAlpha(fq);
 
-	public static int[][] appliquerQuantification(int[][] matriceEntree) {
-		return matriceEntree;
+		// Nouvelle matrice
+		int[][] newMatrice = new int[8][8];
+		int u, v;
+
+		// On parcours la nouvelle matrice
+		for (u = 0; u < 8; u++) {
+			for (v = 0; v < 8; v++) {
+
+				if (couleur == Main.Y) {
+					newMatrice[u][v] = (matriceEntree[u][v])/(alpha*Qy[u][v]);
+				}
+
+				if (couleur == Main.Cb) {
+					newMatrice[u][v] = (matriceEntree[u][v])/(alpha*QCb[u][v]);
+				}
+
+				if (couleur == Main.Cr) {
+					newMatrice[u][v] = (matriceEntree[u][v])/(alpha*QCr[u][v]);
+				}
+
+			}
+
+		}
+
+		return newMatrice;
 
 	}
-
+	
+	private static int calculAlpha(int fq){
+		
+		if(1<fq){
+			return 0;
+		}
+		
+		else if(fq<51){
+			return(50/fq);
+		}
+		
+		else if(fq<100){
+			return((200-2*fq)/100);
+		}
+		
+		return 0;
+		
+	}
+	
 }
