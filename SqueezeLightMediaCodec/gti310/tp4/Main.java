@@ -50,13 +50,20 @@ public class Main {
 		int i, j, u, v;
 
 		PPMReaderWriter ppm = new PPMReaderWriter();
+		//Création d'un tableau 3D qui contient 3 matrices
 		int[][][] newImage = ppm.readPPMFile(args[0]);
+		//Convertion des matrices de couleurs
 		newImage = RGBToYCbCr.convertir(newImage);
+		
+		//Création de blocs 8*8
 		int[][] arrY = new int[8][8];
 		int[][] arrCb = new int[8][8];
 		int[][] arrCr = new int[8][8];
+		//Parcours en hauteur par bloc de 8
 		for (int spaceX = 0; spaceX < PPMReaderWriter.getM_height(); spaceX += 8) {
+			//Parcours en largeur par bloc de 8
 			for (int spaceY = 0; spaceY < PPMReaderWriter.getM_width(); spaceY += 8) {
+				//Parcours des bloc 8*8
 				for (int x = spaceX; x < x + 8; x++) {
 					for (int y = spaceY; y < y + 8; y++) {
 						arrY[x][y] = newImage[Main.Y][x][y];
@@ -66,6 +73,7 @@ public class Main {
 						arrCr[x][y] = newImage[Main.Cr][x][y];
 					}
 				}
+				//Application de la DCT sur les blocs 8*8
 				arrY = DCT.convertirDCT(arrY);
 				arrCb = DCT.convertirDCT(arrCb);
 				arrCr = DCT.convertirDCT(arrCb);
