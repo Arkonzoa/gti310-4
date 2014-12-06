@@ -46,12 +46,8 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// Compteur pour la DCT
-		int i, j, u, v;
-
-		PPMReaderWriter ppm = new PPMReaderWriter();
 		//Création d'un tableau 3D qui contient 3 matrices
-		int[][][] newImage = ppm.readPPMFile(args[0]);
+		int[][][] newImage = PPMReaderWriter.readPPMFile(args[0]);
 		//Convertion des matrices de couleurs
 		newImage = RGBToYCbCr.convertir(newImage);
 		
