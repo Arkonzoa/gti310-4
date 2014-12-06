@@ -2,6 +2,7 @@ package gti310.tp4;
 
 public class Quantification {
 
+	//Table de quantification Qy de la luminance
 	private static final int[][] Qy = { { 16, 40, 40, 40, 40, 40, 51, 61 },
 			{ 40, 40, 40, 40, 40, 58, 60, 55 },
 			{ 40, 40, 40, 40, 40, 57, 69, 56 },
@@ -13,6 +14,7 @@ public class Quantification {
 
 	};
 
+	//Table de quantification Qy de la chrominance Cb
 	private static final int[][] QCb = { { 17, 40, 40, 95, 95, 95, 95, 95 },
 			{ 40, 40, 40, 95, 95, 95, 95, 95 },
 			{ 40, 40, 40, 95, 95, 95, 95, 95 },
@@ -24,6 +26,7 @@ public class Quantification {
 
 	};
 
+	//Table de quantification Qy de la chrominance Cr
 	private static final int[][] QCr = { { 17, 40, 40, 95, 95, 95, 95, 95 },
 			{ 40, 40, 40, 95, 95, 95, 95, 95 },
 			{ 40, 40, 40, 95, 95, 95, 95, 95 },
@@ -35,8 +38,15 @@ public class Quantification {
 
 	};
 
-	public static int[][] appliquerQuantification(int[][] matriceEntree,
-			int couleur, int fq) {
+	/**
+	 * Fonction qui applique la quantification
+	 * @param blocEntree bloc 8*8 d'entrer a convertir
+	 * @param matrice Matrice Y,Cb ou Cr
+	 * @param fq Facteur de qualite
+	 * @return
+	 */
+	public static int[][] appliquerQuantification(int[][] blocEntree,
+			int matrice, int fq) {
 		
 		//On récupere la calcul d'alpha
 		int alpha = calculAlpha(fq);
@@ -49,16 +59,16 @@ public class Quantification {
 		for (u = 0; u < 8; u++) {
 			for (v = 0; v < 8; v++) {
 
-				if (couleur == Main.Y) {
-					newMatrice[u][v] = (matriceEntree[u][v])/(alpha*Qy[u][v]);
+				if (matrice == Main.Y) {
+					newMatrice[u][v] = (blocEntree[u][v])/(alpha*Qy[u][v]);
 				}
 
-				if (couleur == Main.Cb) {
-					newMatrice[u][v] = (matriceEntree[u][v])/(alpha*QCb[u][v]);
+				if (matrice == Main.Cb) {
+					newMatrice[u][v] = (blocEntree[u][v])/(alpha*QCb[u][v]);
 				}
 
-				if (couleur == Main.Cr) {
-					newMatrice[u][v] = (matriceEntree[u][v])/(alpha*QCr[u][v]);
+				if (matrice == Main.Cr) {
+					newMatrice[u][v] = (blocEntree[u][v])/(alpha*QCr[u][v]);
 				}
 
 			}
@@ -69,6 +79,11 @@ public class Quantification {
 
 	}
 	
+	/**
+	 * Calcul de alpha en fonction du facteur de qualite
+	 * @param fq : Facteur de qualité
+	 * @return
+	 */
 	private static int calculAlpha(int fq){
 		
 		if(1<fq){
