@@ -1,7 +1,6 @@
 package gti310.tp4;
 /**
  * Class to convert a 1D array into a 2D array with reverse zigzag
- * @author Phil
  *
  */
 public class IZigzag {

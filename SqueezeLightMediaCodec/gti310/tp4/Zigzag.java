@@ -2,7 +2,6 @@ package gti310.tp4;
 
 /**
  * Class to convert a 2D array into a 1D array with zigzaging
- * @author Phil
  *
  */
 public class Zigzag {

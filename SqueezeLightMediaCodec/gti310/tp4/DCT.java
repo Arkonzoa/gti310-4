@@ -4,7 +4,6 @@ package gti310.tp4;
 
 /**
  * Classe qui va appliquer une DCT sur nos matrice de couleur YCbCr 
- * @author David
  *
  */
 public class DCT {

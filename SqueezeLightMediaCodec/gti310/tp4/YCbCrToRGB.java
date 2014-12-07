@@ -1,5 +1,9 @@
 package gti310.tp4;
 
+/**
+ * Convertie une image ppm YCbCr en RGB
+ *
+ */
 public class YCbCrToRGB {
 
 	public static int[][][] convertir(int[][][] imageAConverir) {

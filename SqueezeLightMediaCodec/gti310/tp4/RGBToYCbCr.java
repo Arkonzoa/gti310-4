@@ -3,7 +3,6 @@ package gti310.tp4;
 /**
  * Convertie une image ppm RGB en YCbCr
  * 
- * @author David
  *
  */
 public class RGBToYCbCr {

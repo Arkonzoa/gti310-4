@@ -1,5 +1,9 @@
 package gti310.tp4;
 
+/**
+ * Applique la quantification selon un facteur de qualité
+ *
+ */
 public class Quantification {
 
 	//Table de quantification Qy de la luminance

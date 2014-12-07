@@ -1,12 +1,11 @@
 package gti310.tp4;
 
+/**
+ * Classe qui va appliquer la IDCT 
+ */
 public class DIDCT{
 	
-	/**
-	 * Classe qui va appliquer la IDCT 
-	 * @param matriceEntree
-	 * @return
-	 */
+
 	public static int[][] convertirIDCT(int[][] matriceEntree) {
 
 		//Nouvelle matrice
